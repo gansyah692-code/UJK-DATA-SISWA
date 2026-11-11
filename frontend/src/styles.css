@@ -1,0 +1,102 @@
+:root {
+  --kertas: #8398d4;
+  --permukaan: #eeeef3;
+  --tinta: #4164b1;
+  --redup: #5b6780;
+  --garis: #d5dce6;
+  --biru: #2f5bea;
+  --biru-tua: #2548c4;
+  --merah: #c23b3b;
+  --merah-muda: #fbeaea;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: 'Figtree', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2 { font-family: 'Bricolage Grotesque', 'Figtree', sans-serif; margin: 0; }
+h1 { font-size: 2.4rem; line-height: 1.1; }
+h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+
+.halaman { max-width: 62rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+
+.kepala {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.sub { margin: .35rem 0 0; color: var(--redup); }
+
+.cari {
+  width: 100%; padding: .7rem .9rem; font: inherit;
+  border: 1px solid var(--garis); border-radius: 8px; background: var(--permukaan);
+  margin-bottom: 1rem;
+}
+
+.tabel-bungkus {
+  overflow-x: auto; background: var(--permukaan);
+  border: 1px solid var(--garis); border-radius: 10px;
+}
+table { width: 100%; border-collapse: collapse; min-width: 44rem; }
+th, td { text-align: left; padding: .75rem 1rem; border-bottom: 1px solid var(--garis); vertical-align: top; }
+th { font-size: .85rem; font-weight: 600; color: var(--redup); background: #f7f9fb; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #fcf7f7; }
+.nis { font-variant-numeric: tabular-nums; color: var(--redup); }
+.alamat { font-size: .85rem; color: var(--redup); max-width: 18rem; }
+.aksi { white-space: nowrap; text-align: right; }
+
+.tombol {
+  font: inherit; font-weight: 500; cursor: pointer;
+  padding: .6rem 1.1rem; border-radius: 8px;
+  border: 1px solid var(--garis); background: var(--permukaan); color: var(--tinta);
+}
+.tombol:hover { border-color: var(--tinta); }
+.tombol.utama { background: var(--biru); border-color: var(--biru); color: #fff; }
+.tombol.utama:hover { background: var(--biru-tua); border-color: var(--biru-tua); }
+.tombol.utama:disabled { opacity: .6; cursor: wait; }
+.tombol.kecil { padding: .3rem .7rem; font-size: .88rem; margin-left: .35rem; }
+.tombol.bahaya { color: var(--merah); }
+.tombol.bahaya:hover { background: var(--merah-muda); border-color: var(--merah); }
+:is(.tombol, input, select, textarea):focus-visible { outline: 3px solid #9db4ff; outline-offset: 1px; }
+
+.kosong {
+  padding: 3rem 1rem; text-align: center; color: var(--redup);
+  background: var(--permukaan); border: 1px dashed var(--garis); border-radius: 10px;
+}
+
+.galat {
+  background: var(--merah-muda); color: var(--merah);
+  border: 1px solid #f0f5f4; border-radius: 8px; padding: .6rem .9rem; margin: .75rem 0;
+}
+
+.latar {
+  position: fixed; inset: 0; background: rgba(20, 33, 61, .45);
+  display: grid; place-items: center; padding: 1rem; overflow-y: auto;
+}
+.modal {
+  width: 100%; max-width: 34rem; background: var(--permukaan);
+  border-radius: 12px; padding: 1.5rem; display: grid; gap: .9rem;
+}
+.modal label { display: grid; gap: .3rem; font-size: .9rem; font-weight: 500; }
+.modal input, .modal select, .modal textarea {
+  font: inherit; padding: .55rem .7rem; border: 1px solid var(--garis);
+  border-radius: 8px; background: #f0f5f4; color: var(--tinta);
+}
+.baris { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+.tombol-form { display: flex; justify-content: flex-end; gap: .6rem; margin-top: .25rem; }
+
+.toast {
+  position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  background: var(--tinta); color: #f0f5f4; padding: .65rem 1.1rem; border-radius: 8px;
+}
+
+@media (max-width: 30rem) {
+  .baris { grid-template-columns: 1fr; }
+  h1 { font-size: 1.9rem; }
+}
